@@ -15,9 +15,10 @@ def get_data():
 
 def display():
     print(ascii.logo)
+    print(f"Current Streak: {score}")
     print(f"Compare A: {position_A['name']}, {position_A['description']} from {position_A['country']}.")
     print(ascii.vs)
-    print(f"Compare A: {position_B['name']}, {position_B['description']} from {position_B['country']}.")
+    print(f"Against B: {position_B['name']}, {position_B['description']} from {position_B['country']}.")
     
 def get_selection(): 
     global user_selection
@@ -37,19 +38,31 @@ def compare():
     global position_A
     global position_B
     global end_game
+    global score
     if user_selection["follower_count"] > alt_option["follower_count"]:
         score += 1
         position_A = user_selection
         position_B = get_data()
+        clear()
     else: 
-        end_game = True
-
+        clear()
+        print(f"Wrong Answer. You lose with a streak of {score}!")
+        continue_playing = input("Would you like to play again? 'y' or 'n': ")
+        if continue_playing == 'y':
+            clear()
+            score = 0
+            end_game = False
+            position_A = get_data()
+            position_B = get_data()
+        else: 
+            clear()
+            end_game = True
 
 
 position_A = get_data()
 position_B = get_data()
 
 while not end_game:
-    get_data()
     display()
-    end_game = True
+    get_selection()
+    compare()
