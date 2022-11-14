@@ -1,6 +1,6 @@
 ###################################################
 
-100 DAYS OF CODE | Day 12 - Higher Lower Game
+100 DAYS OF CODE | Days 12 & 13- Higher Lower Game
 
 PLAY HERE: https://replit.com/@Matt1284508/Higher-Lower-Game?v=1
 
